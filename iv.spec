@@ -1,6 +1,6 @@
 %define name    iv
-%define version 2.2.4
-%define release %mkrel 3
+%define version 2.5.1
+%define release %mkrel 1
 
 %define title       IV
 %define longtitle   Image browser
@@ -11,8 +11,8 @@ Release:        %{release}
 Summary:        Image Viewer
 Group:          Graphics
 License:        GPL
-URL:            http://wolfpack.twu.net/IV/
-Source:         http://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
+Source:         http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
+Patch:          iv-2.5.1-fix-build-errors.patch
 BuildRequires:  XFree86-devel
 BuildRequires:  gtk+-devel
 BuildRequires:  imlib2-devel
@@ -27,6 +27,7 @@ do window grabs.
 
 %prep
 %setup -q
+%patch -p 1
 
 %build
 export CFLAGS="%{optflags}"
