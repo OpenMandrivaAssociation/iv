@@ -14,10 +14,14 @@ License:        GPL
 Source:         http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
 Patch0:         iv-2.5.1-fix-build-errors.patch
 Patch1:         iv-2.5.1-fix-lib64-build.patch
-BuildRequires:  XFree86-devel
+BuildRequires:  X11-devel
 BuildRequires:  gtk+-devel
 BuildRequires:  imlib2-devel
 BuildRequires:  ImageMagick
+BuildRequires:  ungif-devel
+BuildRequires:  jpeg-devel
+BuildRequires:  png-devel
+BuildRequires:  libxxf86vm-static-devel
 BuildRequires:  endeavour-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
