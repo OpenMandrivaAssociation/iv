@@ -16,11 +16,12 @@ Patch0:         iv-2.5.1-fix-build-errors.patch
 Patch1:         iv-2.5.1-fix-lib64-build.patch
 BuildRequires:  X11-devel
 BuildRequires:  gtk+-devel
-BuildRequires:  imlib2-devel
+BuildRequires:  imlib-devel
 BuildRequires:  ImageMagick
 BuildRequires:  ungif-devel
 BuildRequires:  jpeg-devel
 BuildRequires:  png-devel
+BuildRequires:  mng-devel
 BuildRequires:  libxxf86vm-static-devel
 BuildRequires:  endeavour-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}
@@ -43,8 +44,8 @@ export CFLAGS="%{optflags} -I%{_includedir}/endeavour2"
 %else
 %define platform Linux
 %endif
-./configure %{platform} -v --disable=arch-i686 --libdir=-L%{_libdir}
-#%make CFLAGS="%{optflags}" all
+./configure %{platform} \
+    -v --disable=arch-i686 --libdir=-L%{_libdir} --enable=debug
 %make all
 
 %install
