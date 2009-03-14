@@ -12,11 +12,13 @@ Summary:        Image Viewer
 Group:          Graphics
 License:        GPL
 Source:         http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
-Patch:          iv-2.5.1-fix-build-errors.patch
+Patch0:         iv-2.5.1-fix-build-errors.patch
+Patch1:         iv-2.5.1-fix-lib64-build.patch
 BuildRequires:  XFree86-devel
 BuildRequires:  gtk+-devel
 BuildRequires:  imlib2-devel
 BuildRequires:  ImageMagick
+BuildRequires:  endeavour-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
@@ -27,11 +29,17 @@ do window grabs.
 
 %prep
 %setup -q
-%patch -p 1
+%patch0 -p 1
+%patch1 -p 1
 
 %build
-export CFLAGS="%{optflags}"
-./configure Linux -v --disable=arch-i686 --libdir=-L%{_libdir}
+export CFLAGS="%{optflags} -I%{_includedir}/endeavour2" 
+%ifarch x86_64
+%define platform Linux64
+%else
+%define platform Linux
+%endif
+./configure %{platform} -v --disable=arch-i686 --libdir=-L%{_libdir}
 #%make CFLAGS="%{optflags}" all
 %make all
 
