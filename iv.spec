@@ -1,5 +1,5 @@
 %define name    iv
-%define version 2.5.1
+%define version 2.5.2
 %define release %mkrel 1
 
 %define title       IV
