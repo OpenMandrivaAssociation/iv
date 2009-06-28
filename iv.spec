@@ -17,7 +17,7 @@ Patch1:         iv-2.5.1-fix-lib64-build.patch
 BuildRequires:  X11-devel
 BuildRequires:  gtk+-devel
 BuildRequires:  imlib-devel
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 BuildRequires:  ungif-devel
 BuildRequires:  jpeg-devel
 BuildRequires:  png-devel
