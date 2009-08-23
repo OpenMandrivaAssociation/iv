@@ -1,5 +1,5 @@
 %define name    iv
-%define version 2.5.2
+%define version 2.6.1
 %define release %mkrel 2
 
 %define title       IV
@@ -12,7 +12,7 @@ Summary:        Image Viewer
 Group:          Graphics
 License:        GPL
 Source:         http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
-Patch0:         iv-2.5.1-fix-build-errors.patch
+Patch0:         iv-2.6.1-fix-build-errors.patch
 Patch1:         iv-2.5.1-fix-lib64-build.patch
 BuildRequires:  X11-devel
 BuildRequires:  gtk+-devel
