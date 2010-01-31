@@ -1,6 +1,6 @@
 %define name    iv
 %define version 2.6.1
-%define release %mkrel 3
+%define release %mkrel 4
 
 %define title       IV
 %define longtitle   Image browser
@@ -10,7 +10,7 @@ Version:        %{version}
 Release:        %{release}
 Summary:        Image Viewer
 Group:          Graphics
-License:        GPL
+License:        GPLv2+
 Source:         http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
 Patch0:         iv-2.6.1-fix-build-errors.patch
 Patch1:         iv-2.5.1-fix-lib64-build.patch
