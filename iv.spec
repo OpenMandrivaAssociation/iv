@@ -1,31 +1,31 @@
-%define name    iv
+%define	name	iv
 %define version 2.6.1
 %define release %mkrel 4
 
-%define title       IV
-%define longtitle   Image browser
+%define title		IV
+%define longtitle	Image browser
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        Image Viewer
-Group:          Graphics
-License:        GPLv2+
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Summary:	Image Viewer
+Group:		Graphics
+License:	GPLv2+
 URL:		http://freshmeat.net/projects/iv/
-Source:         http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
-Patch0:         iv-2.6.1-fix-build-errors.patch
-Patch1:         iv-2.5.1-fix-lib64-build.patch
-BuildRequires:  X11-devel
-BuildRequires:  gtk+-devel
-BuildRequires:  imlib-devel
-BuildRequires:  imagemagick
-BuildRequires:  ungif-devel
-BuildRequires:  jpeg-devel
-BuildRequires:  png-devel
-BuildRequires:  mng-devel
-BuildRequires:  libxxf86vm-static-devel
-BuildRequires:  endeavour-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+Source:		http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
+Patch0:		iv-2.6.1-fix-build-errors.patch
+Patch1:		iv-2.5.1-fix-lib64-build.patch
+BuildRequires:	X11-devel
+BuildRequires:	gtk+-devel
+BuildRequires:	imlib-devel
+BuildRequires:	imagemagick
+BuildRequires:	ungif-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	png-devel
+BuildRequires:	mng-devel
+BuildRequires:	libxxf86vm-static-devel
+BuildRequires:	endeavour-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Sometimes reffered to as ImgView or IV, this is a basic image viewer
@@ -64,7 +64,6 @@ install -D -m 644 %{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
 install -d -m 755 %{buildroot}%{_datadir}/applications
 cat >  %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=%{title}
 Comment=%{longtitle}
 Exec=%{_bindir}/%{name}
@@ -72,11 +71,21 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=false
-Categories=Viewer
+Categories=Viewer;
 EOF
 
 %clean
 rm -rf %{buildroot}
+
+%if %mdkversion < 200900
+
+%post
+%{update_menus}
+
+%postun
+%{clean_menus}
+
+%endif
 
 %files
 %defattr(-,root,root)
