@@ -1,9 +1,8 @@
 %define	name	iv
-%define version 2.6.1
-%define release %mkrel 4
-
-%define title		IV
-%define longtitle	Image browser
+%define	version	2.6.1
+%define	release %mkrel 5
+%define	title		IV
+%define	longtitle	Image browser
 
 Name:		%{name}
 Version:	%{version}
@@ -35,8 +34,8 @@ do window grabs.
 
 %prep
 %setup -q
-%patch0 -p 1
-%patch1 -p 1
+%patch0 -p1
+%patch1 -p1
 
 %build
 export CFLAGS="%{optflags} -I%{_includedir}/endeavour2" 
