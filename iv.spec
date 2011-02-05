@@ -1,6 +1,6 @@
 %define	name	iv
 %define	version	2.6.1
-%define	release %mkrel 6
+%define	release %mkrel 7
 %define	title		IV
 %define	longtitle	Image browser
 
@@ -14,7 +14,11 @@ URL:		http://freshmeat.net/projects/iv/
 Source:		http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
 Patch0:		iv-2.6.1-fix-build-errors.patch
 Patch1:		iv-2.5.1-fix-lib64-build.patch
-BuildRequires:	X11-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxp-devel
+BuildRequires:	libxpm-devel
+BuildRequires:	libxprintutil-devel
+BuildRequires:	libxxf86vm-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	imlib-devel
 BuildRequires:	imagemagick
@@ -22,7 +26,6 @@ BuildRequires:	ungif-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	png-devel
 BuildRequires:	mng-devel
-BuildRequires:	libxxf86vm-static-devel
 BuildRequires:	endeavour-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
@@ -45,7 +48,7 @@ export CFLAGS="%{optflags} -I%{_includedir}/endeavour2"
 %define platform Linux
 %endif
 ./configure %{platform} \
-    -v --disable=arch-i686 --libdir=-L%{_libdir} --enable=debug
+    -v --disable=arch-i686 --libdir="%ldflags -L%_libdir" --enable=debug
 %make all
 
 %install
