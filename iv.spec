@@ -14,6 +14,11 @@ URL:		https://freshmeat.net/projects/iv/
 Source:		http://wolfsinger.com/~wolfpack/packages/%{name}-%{version}.tar.bz2
 Patch0:		iv-2.6.1-fix-build-errors.patch
 Patch1:		iv-2.5.1-fix-lib64-build.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libx11-devel
 BuildRequires:	libxp-devel
 BuildRequires:	libxpm-devel
