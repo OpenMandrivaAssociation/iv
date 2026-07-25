@@ -1,6 +1,6 @@
 %define	name	iv
 %define	version	2.6.1
-%define	release %mkrel 7
+%define	release 8
 %define	title		IV
 %define	longtitle	Image browser
 
